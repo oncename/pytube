@@ -149,6 +149,15 @@ class Search:
                 if 'backgroundPromoRenderer' in video_details:
                     continue
 
+                # Skip 'Sponsored/advertisement' results
+                if 'adSlotRenderer' in video_details:
+                    continue
+
+                # Skip 'Youtube Shorts' results 
+                if 'reelShelfRenderer' in video_details:
+                    continue
+
+
                 if 'videoRenderer' not in video_details:
                     logger.warning('Unexpected renderer encountered.')
                     logger.warning(f'Renderer name: {video_details.keys()}')
